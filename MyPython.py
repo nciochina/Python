@@ -1,3 +1,3 @@
-a=5+b
-b=
-print(a)
+b = 3000
+a = "My age is"
+print(a, b)
