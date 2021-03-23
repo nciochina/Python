@@ -8,3 +8,4 @@ button = driver.find_elements_by_id("submit_button")
 
 button.click()
 
+driver.quit()
