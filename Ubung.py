@@ -1,11 +1,16 @@
-from selenium import webdriver
+from selenium import webdriver 
+import time
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+link = "https://www.bnm.md/"
+try:
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get(link)
+    element = driver.find_element(By.XPATH, "//a[contains(text(),'Media')]")
+    element.click()
 
-driver.get("http://suninjuly.github.io/simple_form_find_task.html")
-button = driver.find_elements_by_id("submit_button")
-
-button.click()
-
-driver.quit()
+finally:
+    time.sleep(30)
+    driver.quit()
